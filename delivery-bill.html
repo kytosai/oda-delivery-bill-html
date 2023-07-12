@@ -42,7 +42,7 @@
       #transaction-product td {
         padding: 0.3rem;
         text-align: center;
-        border-color: #000;
+        border: 1px solid #000;
       }
       #transaction-product th {
         white-space: nowrap;
@@ -54,7 +54,7 @@
       }
       #transaction-product th:not(:last-child),
       #transaction-product td:not(:last-child) {
-        border-right: 0.5px solid #000;
+        border-right: 1px solid #000;
       }
 
       /* No column */
@@ -96,12 +96,18 @@
         width: 50px;
         white-space: nowrap;
       }
+      #transaction-product td:nth-child(6) {
+        font-size: 16px;
+      }
 
       /* Received quantity column */
       #transaction-product th:nth-child(7),
       #transaction-product td:nth-child(7) {
         width: 50px;
         white-space: nowrap;
+      }
+      #transaction-product td:nth-child(7) {
+        font-size: 16px;
       }
 
       /* Unit price column */
@@ -112,6 +118,7 @@
       }
       #transaction-product td:nth-child(8) {
         text-align: right;
+        font-size: 16px;
       }
 
       /* VAT column */
@@ -119,6 +126,9 @@
       #transaction-product td:nth-child(9) {
         width: 40px;
         white-space: nowrap;
+      }
+      #transaction-product td:nth-child(9) {
+        font-size: 16px;
       }
 
       /* Amount column */
@@ -129,6 +139,7 @@
       }
       #transaction-product td:nth-child(10) {
         text-align: right;
+        font-size: 16px;
       }
 
       #table-infor-order tbody td,
@@ -221,7 +232,6 @@
       .form-transaction .form-transaction__date {
           font-weight: 600;
           padding: 0.4rem 0;
-          font-size: 13px;
       }
       .form-transaction .form-transaction__date ul,
       .form-transaction .form-transaction__head ul {
@@ -429,10 +439,6 @@
           .title {
           color: #000;
       }
-      .form-transaction--bottom,
-      .form-transaction .form-transaction__date {
-          font-size: 12px;
-      }
       .form-transaction__hero .company {
           margin-bottom: 1.6rem;
           margin-top: 1rem;
@@ -462,7 +468,7 @@
           left: 50%;
           transform: translate(-50%, -50%);
           top: 50%;
-          font-weight: 500;
+          font-weight: 700;
           background: transparent;
           text-align: center;
           color: #000;
@@ -585,13 +591,16 @@
         margin-left: 16px;
       }
       .total-order-section .price-number {
-
+        font-size: 16px;
       }
       .total-order-section .payment-col .info-item-title {
         flex: 0 0 220px;
       }
       .total-order-section .payment-col .info-item-content {
 
+      }
+      .total-order-section .total-col {
+        font-size: 16px;
       }
       .total-order-section .total-col .info-item-title {
         flex: 1 1;
@@ -710,7 +719,7 @@
                   src="https://oda-s3-development.s3.ap-southeast-1.amazonaws.com/companies/1697/16853493071238.png"
                   class="img-fluid"
                 />
-                <p style="margin-bottom: 0; font-weight: 600; font-size: 1rem">
+                <p style="margin-bottom: 0; font-weight: 600">
                   Công ty TNHH Vạn Thịnh Phát<br />123 abc, Huyện Hoằng Hóa, Tỉnh Thanh Hóa
                 </p>
                 <span style="font-weight: 600; font-size: 1.2rem; margin: 0px 0px 0px auto"
