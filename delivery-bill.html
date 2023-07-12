@@ -19,30 +19,112 @@
       href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
     />
     <style>
+      * {
+        box-sizing: border-box;
+      }
       html {
-          font-size: 15px;
+          font-size: 16px;
       }
       body {
           margin: 0;
           font-family: "Noto Sans", sans-serif;
-          font-size: 1rem;
+          font-size: 12px;
           font-weight: 400;
           line-height: 1.5;
-          color: #495057;
+          color: #000;
           text-align: left;
           background-color: #f8f8fb;
       }
-      #transaction-product th,
+      #transaction-product {
+        border-collapse: collapse;
+      }
+      #transaction-product th {
+        white-space: nowrap;
+        background: #eee;
+      }
       #transaction-product td {
-          max-width: 70px;
-          word-break: break-word;
-          width: 70px;
-          white-space: initial;
+        padding: 4px;
+        word-break: break-word;
       }
       #transaction-product th:not(:last-child),
       #transaction-product td:not(:last-child) {
-          border-right: 0.5px solid #555;
+        border-right: 0.5px solid #000;
       }
+
+      /* No column */
+      #transaction-product th:nth-child(1),
+      #transaction-product td:nth-child(1) {
+        width: 50px;
+      }
+
+      /* Sku column */
+      #transaction-product th:nth-child(2),
+      #transaction-product td:nth-child(2) {
+        width: 80px;
+      }
+
+      /* Products column */
+      #transaction-product th:nth-child(3),
+      #transaction-product td:nth-child(3) {
+        min-width: 120px;
+      }
+      #transaction-product td:nth-child(3) {
+        text-align: left;
+      }
+
+      /* UoM column */
+      #transaction-product th:nth-child(4),
+      #transaction-product td:nth-child(4) {
+        width: 80px;
+      }
+
+      /* Specs uom column */
+      #transaction-product th:nth-child(5),
+      #transaction-product td:nth-child(5) {
+        width: 120px;
+      }
+
+      /* Quantity column */
+      #transaction-product th:nth-child(6),
+      #transaction-product td:nth-child(6) {
+        width: 50px;
+        white-space: nowrap;
+      }
+
+      /* Received quantity column */
+      #transaction-product th:nth-child(7),
+      #transaction-product td:nth-child(7) {
+        width: 50px;
+        white-space: nowrap;
+      }
+
+      /* Unit price column */
+      #transaction-product th:nth-child(8),
+      #transaction-product td:nth-child(8) {
+        width: 50px;
+        white-space: nowrap;
+      }
+      #transaction-product td:nth-child(8) {
+        text-align: right;
+      }
+
+      /* VAT column */
+      #transaction-product th:nth-child(9),
+      #transaction-product td:nth-child(9) {
+        width: 40px;
+        white-space: nowrap;
+      }
+
+      /* Amount column */
+      #transaction-product th:nth-child(10),
+      #transaction-product td:nth-child(10) {
+        width: 50px;
+        white-space: nowrap;
+      }
+      #transaction-product td:nth-child(10) {
+        text-align: right;
+      }
+
       #table-infor-order tbody td,
       #transaction-top tbody td {
           border: 0 !important;
@@ -155,13 +237,13 @@
           background: #eee;
       }
       .form-transaction table.table-bordered td {
-          border-color: #555;
+          border-color: #000;
           text-align: center;
       }
       .form-transaction table.table-bordered.table-product th,
       .form-transaction table.table-bordered.table-product td {
           text-align: center;
-          border-color: #555;
+          border-color: #000;
       }
       .form-transaction table td,
       .form-transaction table th {
@@ -184,7 +266,7 @@
           font-size: 12px;
           line-height: 1.2;
           padding: 0.3rem;
-          border-bottom: 1px solid #555555;
+          border-bottom: 1px solid #000;
           display: block;
           height: 100%;
       }
@@ -194,7 +276,7 @@
       .form-transaction
           .form-transaction--bottom
           .form-transaction--sapo.border-left-1 {
-          border-left: 1px solid #555555;
+          border-left: 1px solid #000;
       }
       .form-transaction
           .form-transaction--bottom
@@ -202,7 +284,7 @@
       .form-transaction
           .form-transaction--bottom
           .form-transaction--sapo.border-right-1 {
-          border-right: 1px solid #555555;
+          border-right: 1px solid #000;
       }
       .form-transaction
           .form-transaction--bottom
@@ -210,7 +292,7 @@
       .form-transaction
           .form-transaction--bottom
           .form-transaction--sapo.border-top-1 {
-          border-top: 1px solid #555555;
+          border-top: 1px solid #000;
       }
       .form-transaction
           .form-transaction--bottom
@@ -218,7 +300,7 @@
       .form-transaction
           .form-transaction--bottom
           .form-transaction--sapo.border-top-2 {
-          border-top: 2px solid #555555;
+          border-top: 2px solid #000;
       }
       .form-transaction
           .form-transaction--bottom
@@ -226,7 +308,7 @@
       .form-transaction
           .form-transaction--bottom
           .form-transaction--sapo.border-left-2 {
-          border-left: 2px solid #555555;
+          border-left: 2px solid #000;
       }
       .form-transaction
           .form-transaction--bottom
@@ -234,7 +316,7 @@
       .form-transaction
           .form-transaction--bottom
           .form-transaction--sapo.border-right-2 {
-          border-right: 2px solid #555555;
+          border-right: 2px solid #000;
       }
       .form-transaction
           .form-transaction--bottom
@@ -242,7 +324,7 @@
       .form-transaction
           .form-transaction--bottom
           .form-transaction--sapo.border-bottom-2 {
-          border-bottom: 2px solid #555555 !important;
+          border-bottom: 2px solid #000 !important;
       }
       .form-transaction
           .form-transaction--bottom
@@ -272,12 +354,12 @@
       }
       .list-history > li .title {
           font-weight: 500;
-          color: #495057;
+          color: #000;
       }
       .list-history > li .title small {
           margin-left: 5px;
           font-size: 90%;
-          color: #8d8d8d;
+          color: #000;
           line-height: 16px;
       }
       .list-history > li .list-sub {
@@ -320,13 +402,6 @@
       }
       .table-product thead > tr:not(:first-child) {
           display: none;
-      }
-      #transaction-product td {
-          font-weight: 600;
-      }
-      #transaction-product td,
-      #transaction-pay td {
-          padding: 4px 4px;
       }
       #transaction-product thead th {
           padding-top: 4px;
@@ -378,18 +453,11 @@
           width: 100%;
           background: transparent !important;
       }
-      #transaction-pay td {
-          font-size: 14px;
-      }
       #specification_of_transaction .modal-option-print button {
           width: 70px;
           height: 40px;
           background: #ea5455;
           border-radius: 6px;
-      }
-      #transaction-pay th,
-      #transaction-pay td {
-          border-top: 0;
       }
       .company-logo {
           max-width: 284px;
@@ -411,7 +479,7 @@
           background: transparent;
           text-align: center;
           line-height: 24px;
-          color: #b9b9c3;
+          color: #000;
       }
       .counter-page div {
           display: inline;
@@ -538,7 +606,7 @@
             <div class="form_content form-transaction__content">
               <table
                 id="transaction-product"
-                class="table table-product table-bordered table-centered table-nowrap w-100 mb-0"
+                class="table table-product table-bordered table-centered w-100 mb-0"
               >
                 <thead></thead>
                 <tbody></tbody>
@@ -568,7 +636,7 @@
     type="text/javascript"
     src="http://code.jquery.com/jquery-3.7.0.min.js"
   ></script>
-  
+
   <script type="text/javascript">
     let visibleVat = 1;
     let sheet = 1;
@@ -609,402 +677,308 @@
                                 <div>Buyer <br> (Đại diện bên mua)</div>
                             </div>
                         </div>`,
-          htmlHeader: `<div class="form-transaction__hero">
-                                <div class="company">
-                                    <div class="company-content">
-                                        <h3
-                                            class="title m-0 w-100 text-center"
-                                            style="line-height: 1.3"
-                                        >
-                                            Delivery bill <br />
-                                            (Hóa đơn giao hàng)
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div
-                                    class="MuiBox-root css-4g0oz5"
-                                    style="
-                                        display: flex;
-                                        margin-top: 1.75rem;
-                                        align-items: center;
-                                    "
-                                >
-                                    <img
-                                        style="
-                                            width: 4.5625rem;
-                                            height: 4.5625rem;
-                                            object-fit: cover;
-                                            margin-right: 1rem;
-                                        "
-                                        src="https://oda-s3-development.s3.ap-southeast-1.amazonaws.com/companies/1697/16853493071238.png"
-                                        class="img-fluid"
-                                    />
-                                    <p
-                                        style="
-                                            margin-bottom: 0;
-                                            font-weight: 600;
-                                            font-size: 1rem;
-                                        "
-                                    >
-                                        Công ty TNHH Vạn Thịnh Phát<br />123
-                                        abc, Huyện Hoằng Hóa, Tỉnh Thanh Hóa
-                                    </p>
-                                    <span
-                                        style="
-                                            font-weight: 600;
-                                            font-size: 1.2rem;
-                                            margin: 0px 0px 0px auto;
-                                        "
-                                        >Order (Đơn hàng) #746348</span
-                                    >
-                                </div>
-                            </div>
-                            <div class="form-transaction__date">
-                                <ul class="w-100 d-flex">
-                                    <li>
-                                        <span
-                                            >Order date (Ngày đặt hàng):
-                                        </span>
-                                        <span>2022-10-12 15:22:58</span>
-                                    </li>
-                                    <li style="text-align: right">
-                                        <span
-                                            >Expected delivery date (Ngày giao
-                                            hàng dự kiến):</span
-                                        >
-                                        <span> 2023-04-06</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="MuiBox-root css-2w72wc">
-                                <div class="MuiGrid-root css-pzj6pr mb-3">
-                                    <div class="MuiBox-root css-90mxih">
-                                        <div class="MuiBox-root css-1ofzz31">
-                                            Supplier (Nhà cung cấp)
-                                        </div>
-                                    </div>
-                                    <div class="MuiBox-root css-90mxih">
-                                        <div class="MuiBox-root css-1ofzz31">
-                                            Buyer (Người mua)
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="MuiGrid-root css-pzj6pr" mb-3>
-                                    <div class="MuiBox-root css-90mxih">
-                                        <div
-                                            class="MuiGrid-root MuiGrid-container css-1d3bbye"
-                                        >
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-48lmmv"
-                                                >
-                                                    Company name <br />
-                                                    (Tên doanh nghiệp)
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center" 
-                                                >
-                                                    Công ty TNHH Vạn Thịnh Phát
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="MuiBox-root css-90mxih">
-                                        <div
-                                            class="MuiGrid-root MuiGrid-container css-1d3bbye"
-                                        >
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-48lmmv"
-                                                >
-                                                    Company name <br />
-                                                    (Tên doanh nghiệp)
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
-                                                >
-                                                    Masan
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="MuiGrid-root css-pzj6pr mb-3">
-                                    <div class="MuiBox-root css-90mxih">
-                                        <div
-                                            class="MuiGrid-root MuiGrid-container css-1d3bbye"
-                                        >
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-48lmmv"
-                                                >
-                                                    Address <br />
-                                                    (Địa chỉ)
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
-                                                >
-                                                    123 abc, Huyện Hoằng Hóa,
-                                                    Tỉnh Thanh Hóa 123 abc,
-                                                    Huyện Hoằng Hóa, Tỉnh Thanh
-                                                    Hóa
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="MuiBox-root css-90mxih">
-                                        <div
-                                            class="MuiGrid-root MuiGrid-container css-1d3bbye"
-                                        >
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-48lmmv"
-                                                >
-                                                    Address <br />
-                                                    (Địa chỉ)
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
-                                                ></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="MuiGrid-root css-pzj6pr">
-                                    <div class="MuiBox-root css-90mxih">
-                                        <div
-                                            class="MuiGrid-root MuiGrid-container css-1d3bbye"
-                                        >
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-48lmmv"
-                                                >
-                                                    Contact number <br />
-                                                    (Số điện thoại)
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
-                                                >
-                                                    98098688687
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="MuiBox-root css-90mxih">
-                                        <div
-                                            class="MuiGrid-root MuiGrid-container css-1d3bbye"
-                                        >
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-48lmmv"
-                                                >
-                                                    Contact number <br />
-                                                    (Số điện thoại)
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
-                                                ></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="MuiGrid-root css-pzj6pr">
-                                    <div class="MuiBox-root css-90mxih">
-                                        <div
-                                            class="MuiGrid-root MuiGrid-container css-1d3bbye"
-                                        >
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-48lmmv"
-                                                >
-                                                    Payment method <br />
-                                                    (Phương thức TT)
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
-                                                >
-                                                    Transfer
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="MuiBox-root css-90mxih">
-                                    </div>
-                                </div>
-                                <div class="MuiGrid-root css-pzj6pr">
-                                    <div class="MuiBox-root css-90mxih">
-                                        <div
-                                            class="MuiGrid-root MuiGrid-container css-1d3bbye"
-                                        >
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-48lmmv"
-                                                >
-                                                    Bank account <br />
-                                                    (Tài khoản NH)
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx"
-                                            >
-                                                <p
-                                                    class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
-                                                >
-                                                    TPBank - 9089484 - Nguyen Van A
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="MuiBox-root css-90mxih">
-                                    </div>                                    
-                                </div>
-                            </div>
-                        </div>`,
+          htmlHeader: /*html*/ `
+            <div class="form-transaction__hero">
+              <div class="company">
+                <div class="company-content">
+                  <h3 class="title m-0 w-100 text-center" style="line-height: 1.3">
+                    Delivery bill <br />
+                    (Hóa đơn giao hàng)
+                  </h3>
+                </div>
+              </div>
+              <div
+                class="MuiBox-root css-4g0oz5"
+                style="display: flex; margin-top: 1.75rem; align-items: center"
+              >
+                <img
+                  style="
+                    width: 4.5625rem;
+                    height: 4.5625rem;
+                    object-fit: cover;
+                    margin-right: 1rem;
+                  "
+                  src="https://oda-s3-development.s3.ap-southeast-1.amazonaws.com/companies/1697/16853493071238.png"
+                  class="img-fluid"
+                />
+                <p style="margin-bottom: 0; font-weight: 600; font-size: 1rem">
+                  Công ty TNHH Vạn Thịnh Phát<br />123 abc, Huyện Hoằng Hóa, Tỉnh Thanh Hóa
+                </p>
+                <span style="font-weight: 600; font-size: 1.2rem; margin: 0px 0px 0px auto"
+                  >Order (Đơn hàng) #746348</span
+                >
+              </div>
+            </div>
+
+            <div class="form-transaction__date">
+              <ul class="w-100 d-flex">
+                <li>
+                  <span>Order date (Ngày đặt hàng): </span>
+                  <span>2022-10-12 15:22:58</span>
+                </li>
+                <li style="text-align: right">
+                  <span>Expected delivery date (Ngày giao hàng dự kiến):</span>
+                  <span> 2023-04-06</span>
+                </li>
+              </ul>
+            </div>
+        `,
+          htmlSummary: /*html*/ `
+            <div class="MuiBox-root css-2w72wc">
+              <div class="MuiGrid-root css-pzj6pr mb-3">
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiBox-root css-1ofzz31">Supplier (Nhà cung cấp)</div>
+                </div>
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiBox-root css-1ofzz31">Buyer (Người mua)</div>
+                </div>
+              </div>
+              <div class="MuiGrid-root css-pzj6pr" mb-3>
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Company name <br />
+                        (Tên doanh nghiệp)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        Công ty TNHH Vạn Thịnh Phát
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Company name <br />
+                        (Tên doanh nghiệp)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        Masan
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="MuiGrid-root css-pzj6pr mb-3">
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Address <br />
+                        (Địa chỉ)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        123 abc, Huyện Hoằng Hóa, Tỉnh Thanh Hóa 123 abc, Huyện Hoằng Hóa,
+                        Tỉnh Thanh Hóa
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Address <br />
+                        (Địa chỉ)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      ></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="MuiGrid-root css-pzj6pr">
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Contact number <br />
+                        (Số điện thoại)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        98098688687
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Contact number <br />
+                        (Số điện thoại)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      ></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="MuiGrid-root css-pzj6pr">
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Payment method <br />
+                        (Phương thức TT)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        Transfer
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-90mxih"></div>
+              </div>
+              <div class="MuiGrid-root css-pzj6pr">
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Bank account <br />
+                        (Tài khoản NH)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        TPBank - 9089484 - Nguyen Van A
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-90mxih"></div>
+              </div>
+            </div>
+
+          `,
           htmlProducts: [
-            '<tr>\n    <td> 1</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n       <td> 2,000</td>\n    <td> 2,000 đ</td>\n </tr>\n',
-            '<tr>\n    <td> 2</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 3</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 4</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n    <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 5</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 6</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 7</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n    <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 8</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 9</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 10</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 11</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 2,000</td>\n    <td> 2,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 12</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 13</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 14</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 15</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 16</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 17</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 18</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 19</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 20</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 21</td>\n    <td></td>\n    <td> Pizza</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 128,000</td>\n    <td> 128,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 22</td>\n    <td></td>\n    <td> Trà sữa (Hồng)</td>\n    <td> Larger (Chai)</td>\n    <td> 1</td>\n   <td> 5%</td>\n     <td></td>\n    <td> 5</td>\n    <td> 5 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 23</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 24</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n    <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 25</td>\n    <td></td>\n    <td> </td>\n    <td> (ea)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,000</td>\n    <td> 12,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 26</td>\n    <td></td>\n    <td> Bánh Hambuger</td>\n    <td> MacDonald (Lọ)</td>\n    <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 250,000</td>\n    <td> 250,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 27</td>\n    <td>184</td>\n    <td> Mực Ống</td>\n    <td> 1.5L*10EA (Chai)</td>\n    <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 28</td>\n    <td>155</td>\n    <td> Nước tương HQ</td>\n    <td> 1.5L*10EA (Chai)</td>\n    <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 29</td>\n    <td></td>\n    <td> Thịt Bò Hàn Quốc</td>\n    <td> 1 kg (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 82,000</td>\n    <td> 82,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 30</td>\n    <td>12313123</td>\n    <td> Thịt Bò Nhật Bản (82Kg)</td>\n    <td> Buujaa (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 1</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n       <td> 2,000</td>\n    <td> 2,000 đ</td>\n </tr>\n',
+            '<tr>\n    <td> 2</td>\n    <td>34234 asd asd</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 3</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n  <td>Specs asd asd asd asd   sda da ds adsad sad </td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 4</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n    <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 5</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao dai ngoang ne)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 6</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 7</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 8</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 9</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 10</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 11</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 2,000</td>\n    <td> 2,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 12</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 13</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 14</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 15</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 16</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 17</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 18</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 19</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 20</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 21</td>\n    <td></td>\n    <td> Pizza</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 128,000</td>\n    <td> 128,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 22</td>\n    <td></td>\n    <td> Trà sữa (Hồng)</td>\n    <td> Larger (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n   <td> 5%</td>\n     <td></td>\n    <td> 5</td>\n    <td> 5 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 23</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 24</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 25</td>\n    <td></td>\n    <td> </td>\n    <td> (ea)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,000</td>\n    <td> 12,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 26</td>\n    <td></td>\n    <td> Bánh Hambuger</td>\n    <td> MacDonald (Lọ)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 250,000</td>\n    <td> 250,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 27</td>\n    <td>184</td>\n    <td> Mực Ống</td>\n    <td> 1.5L*10EA (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 28</td>\n    <td>155</td>\n    <td> Nước tương HQ</td>\n    <td> 1.5L*10EA (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 29</td>\n    <td></td>\n    <td> Thịt Bò Hàn Quốc</td>\n    <td> 1 kg (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 82,000</td>\n    <td> 82,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 30</td>\n    <td>12313123</td>\n    <td> Thịt Bò Nhật Bản (82Kg)</td>\n    <td> Buujaa (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
 
-            '<tr>\n    <td> 31</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n       <td> 2,000</td>\n    <td> 2,000 đ</td>\n </tr>\n',
-            '<tr>\n    <td> 32</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 33</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 34</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n    <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 35</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 36</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 37</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n    <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 38</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 39</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 40</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 41</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 2,000</td>\n    <td> 2,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 42</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 43</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 44</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 45</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 46</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 47</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 48</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 49</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 50</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 51</td>\n    <td></td>\n    <td> Pizza</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 128,000</td>\n    <td> 128,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 52</td>\n    <td></td>\n    <td> Trà sữa (Hồng)</td>\n    <td> Larger (Chai)</td>\n    <td> 1</td>\n   <td> 5%</td>\n     <td></td>\n    <td> 5</td>\n    <td> 5 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 53</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 54</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n    <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 55</td>\n    <td></td>\n    <td> </td>\n    <td> (ea)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,000</td>\n    <td> 12,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 56</td>\n    <td></td>\n    <td> Bánh Hambuger</td>\n    <td> MacDonald (Lọ)</td>\n    <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 250,000</td>\n    <td> 250,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 57</td>\n    <td>184</td>\n    <td> Mực Ống</td>\n    <td> 1.5L*10EA (Chai)</td>\n    <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 58</td>\n    <td>155</td>\n    <td> Nước tương HQ</td>\n    <td> 1.5L*10EA (Chai)</td>\n    <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 59</td>\n    <td></td>\n    <td> Thịt Bò Hàn Quốc</td>\n    <td> 1 kg (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 82,000</td>\n    <td> 82,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 60</td>\n    <td>12313123</td>\n    <td> Thịt Bò Nhật Bản (82Kg)</td>\n    <td> Buujaa (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 31</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n       <td> 2,000</td>\n    <td> 2,000 đ</td>\n </tr>\n',
+            '<tr>\n    <td> 32</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 33</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 34</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n    <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 35</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 36</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 37</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 38</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 39</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 40</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 41</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 2,000</td>\n    <td> 2,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 42</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 43</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 44</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 45</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 46</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 47</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 48</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 49</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 50</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 51</td>\n    <td></td>\n    <td> Pizza</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 128,000</td>\n    <td> 128,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 52</td>\n    <td></td>\n    <td> Trà sữa (Hồng)</td>\n    <td> Larger (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n   <td> 5%</td>\n     <td></td>\n    <td> 5</td>\n    <td> 5 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 53</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 54</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 55</td>\n    <td></td>\n    <td> </td>\n    <td> (ea)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,000</td>\n    <td> 12,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 56</td>\n    <td></td>\n    <td> Bánh Hambuger</td>\n    <td> MacDonald (Lọ)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 250,000</td>\n    <td> 250,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 57</td>\n    <td>184</td>\n    <td> Mực Ống</td>\n    <td> 1.5L*10EA (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 58</td>\n    <td>155</td>\n    <td> Nước tương HQ</td>\n    <td> 1.5L*10EA (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 59</td>\n    <td></td>\n    <td> Thịt Bò Hàn Quốc</td>\n    <td> 1 kg (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 82,000</td>\n    <td> 82,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 60</td>\n    <td>12313123</td>\n    <td> Thịt Bò Nhật Bản (82Kg)</td>\n    <td> Buujaa (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
 
-            '<tr>\n    <td> 61</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n       <td> 2,000</td>\n    <td> 2,000 đ</td>\n </tr>\n',
-            '<tr>\n    <td> 62</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 63</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 64</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n    <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 65</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 66</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 67</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n    <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 68</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 69</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 70</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 71</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 2,000</td>\n    <td> 2,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 72</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 73</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 74</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 75</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 76</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 77</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 78</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 79</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 80</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 81</td>\n    <td></td>\n    <td> Pizza</td>\n    <td> (Bao)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 128,000</td>\n    <td> 128,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 82</td>\n    <td></td>\n    <td> Trà sữa (Hồng)</td>\n    <td> Larger (Chai)</td>\n    <td> 1</td>\n   <td> 5%</td>\n     <td></td>\n    <td> 5</td>\n    <td> 5 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 83</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 84</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n    <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 85</td>\n    <td></td>\n    <td> </td>\n    <td> (ea)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,000</td>\n    <td> 12,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 86</td>\n    <td></td>\n    <td> Bánh Hambuger</td>\n    <td> MacDonald (Lọ)</td>\n    <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 250,000</td>\n    <td> 250,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 87</td>\n    <td>184</td>\n    <td> Mực Ống</td>\n    <td> 1.5L*10EA (Chai)</td>\n    <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 88</td>\n    <td>155</td>\n    <td> Nước tương HQ</td>\n    <td> 1.5L*10EA (Chai)</td>\n    <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 89</td>\n    <td></td>\n    <td> Thịt Bò Hàn Quốc</td>\n    <td> 1 kg (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 82,000</td>\n    <td> 82,000 đ</td>\n</tr>\n',
-            '<tr>\n    <td> 90</td>\n    <td>12313123</td>\n    <td> Thịt Bò Nhật Bản (82Kg)</td>\n    <td> Buujaa (Kg)</td>\n    <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 61</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n       <td> 2,000</td>\n    <td> 2,000 đ</td>\n </tr>\n',
+            '<tr>\n    <td> 62</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 63</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 64</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n    <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 65</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 66</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 67</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 68</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 69</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 70</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 71</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 2,000</td>\n    <td> 2,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 72</td>\n    <td>34234</td>\n    <td> test2 vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 73</td>\n    <td>999</td>\n    <td> Nước tương HQ 2</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 74</td>\n    <td></td>\n    <td> bankng powder vn</td>\n    <td> (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 90,000</td>\n    <td> 90,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 75</td>\n    <td></td>\n    <td> Trà sữa</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,312</td>\n    <td> 12,312 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 76</td>\n    <td></td>\n    <td> macbook - vn</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,200,000</td>\n    <td> 1,200,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 77</td>\n    <td></td>\n    <td> Sandwich(vn)</td>\n    <td> 개 (Cái)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 1,000,000</td>\n    <td> 1,000,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 78</td>\n    <td></td>\n    <td> Dền cơm</td>\n    <td> (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 50,000</td>\n    <td> 50,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 79</td>\n    <td></td>\n    <td> Cơm rang</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 80</td>\n    <td>123</td>\n    <td> Cơm rang 123</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 30,000</td>\n    <td> 30,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 81</td>\n    <td></td>\n    <td> Pizza</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 128,000</td>\n    <td> 128,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 82</td>\n    <td></td>\n    <td> Trà sữa (Hồng)</td>\n    <td> Larger (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n   <td> 5%</td>\n     <td></td>\n    <td> 5</td>\n    <td> 5 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 83</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 84</td>\n    <td></td>\n    <td> Cá Vũng Tàu</td>\n    <td> (két)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 85</td>\n    <td></td>\n    <td> </td>\n    <td> (ea)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 12,000</td>\n    <td> 12,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 86</td>\n    <td></td>\n    <td> Bánh Hambuger</td>\n    <td> MacDonald (Lọ)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 250,000</td>\n    <td> 250,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 87</td>\n    <td>184</td>\n    <td> Mực Ống</td>\n    <td> 1.5L*10EA (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td> 5%</td>\n    <td></td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 88</td>\n    <td>155</td>\n    <td> Nước tương HQ</td>\n    <td> 1.5L*10EA (Chai)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n    <td> 5%</td>\n    <td> 40,000</td>\n    <td> 40,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 89</td>\n    <td></td>\n    <td> Thịt Bò Hàn Quốc</td>\n    <td> 1 kg (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 82,000</td>\n    <td> 82,000 đ</td>\n</tr>\n',
+            '<tr>\n    <td> 90</td>\n    <td>12313123</td>\n    <td> Thịt Bò Nhật Bản (82Kg)</td>\n    <td> Buujaa (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
           ],
           wrongQty: 1,
         },
         sheet: 2,
       };
-
-      // let hiddenAmountField = 1;
-      // let hiddenUnpaidAmountField = 1;
 
       renderTransaction(response);
 
@@ -1061,29 +1035,25 @@
       function conditionHeaderTable(response) {
         headerTable = ``;
 
-        headerTable = `
-                    <tr>
-                        <th style="max-width: 40px; width: 40px;background: #eee !important;"> No <br /> (Stt) </th>
-                    `;
+        headerTable = `<tr><th><div>No<br />(Stt)</th>`;
         // product code = 1
         if (productCodeActive == 1) {
-          headerTable += `<th style="max-width: 70px; width: 70px;background: #eee !important;"> SKU <br /> (Mã sp) </th>`;
+          headerTable += `<th>SKU<br />(Mã sp)</th>`;
         }
         headerTable += `
-                        <th style="width: 300px; max-width: 300px;background: #eee !important;"> Products <br /> (Sản phẩm) </th>
-                        <th style="max-width: 70px;width: 70px;min-width: 70px;background: #eee !important;"> UoM <br /> (ĐVT) </th>
+                        <th>Products<br />(Sản phẩm)</th>
+                        <th>UoM<br />(ĐVT)</th>
+                        <th>Spec. of UoM<br />(Quy cách đóng gói)</th>
                     `;
         if (typeof refund !== 'undefined' && refund == 1) {
-          headerTable += `
-                            <th style="max-width: 100px;width: 100px;min-width: 100px;background: #eee !important;"> Quantity <br />(S.Lượng) </th>`;
+          headerTable += `<th>Quantity<br />(S.Lượng)</th>`;
         } else {
           // wrong qty = 0
           if (
             typeof response.wrongQty !== 'undefined' &&
             response.wrongQty == 0
           ) {
-            headerTable += `
-                                <th style="max-width: 100px;width: 100px;min-width: 100px;background: #eee !important;"> QTY </th>`;
+            headerTable += `<th>QTY</th>`;
           }
         }
 
@@ -1094,39 +1064,19 @@
             response.wrongQty == 1
           ) {
             headerTable += `
-                                <th style="max-width: 100px;width: 100px;min-width: 100px;background: #eee !important;"> Quantity <br />(S.Lượng) </th>
-                                <th style="max-width: 100px;width: 100px;min-width: 100px;background: #eee !important;"> Received Qty <br /> (S.lượng thực) </th>`;
+              <th>Qty<br />(SL)</th>
+              <th>Received Qty<br />(S.lượng thực)</th>
+            `;
           }
         }
 
-        headerTable += `
-                        <th style="max-width: 80px; min-width:80px;background: #eee !important;"> Unit Price <br /> (Đơn Giá) </th>
-                    `;
+        headerTable += `<th>Unit Price<br />(Đơn giá)</th>`;
 
-        headerTable += `
-                    <th style="max-width: 80px; min-width:80px;background: #eee !important;"> VAT <br /> (Thuế VAT) </th>
-                `;
+        headerTable += `<th>VAT<br />(VAT)</th>`;
 
-        if (typeof refund !== 'undefined' && refund == 1) {
-          // visible vat
-          if (visibleVat == 'BOTH' || visibleVat == 'VAT') {
-            headerTable += `<th style="max-width: 70px; width: 70px;background: #eee !important;"> VAT </th>`;
-          }
-        } else {
-          // wrong qty && visible vat
-          if (typeof response.wrongQty !== 'undefined') {
-            if (visibleVat == 'BOTH' || visibleVat == 'VAT') {
-              headerTable += `<th style="max-width: 70px; width: 70px;background: #eee !important;"> VAT </th>`;
-            }
-          }
-        }
-        headerTable += `
-                        <th style="max-width: 100px; width: 100px;min-width: 100px;background: #eee !important;"> Amount <br /> (Thành Tiền) </th>
-                    `;
+        headerTable += `<th>Amount<br />(Thành Tiền)</th>`;
 
-        headerTable += `
-                        </tr>
-                    `;
+        headerTable += `</tr>`;
 
         // Append thead
         $('.form_content .table-product thead').last().append(headerTable);
