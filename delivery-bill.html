@@ -614,19 +614,6 @@
             </div>
             <div class="form_footer"></div>
           </div>
-          <div class="form-transaction">
-            <div class="form_head form-transaction__head"></div>
-            <div class="form_content form-transaction__content">
-              <table
-                id="transaction-product"
-                class="table table-product table-bordered table-centered table-nowrap w-100 mb-0"
-              >
-                <thead></thead>
-                <tbody></tbody>
-              </table>
-            </div>
-            <div class="form_footer"></div>
-          </div>
         </div>
       </div>
     </div>
@@ -665,18 +652,6 @@
     $(document).ready(function () {
       const response = {
         88395: {
-          htmlBottom: `
-                        <div class="grid-container">
-                            <div class="grid-item">
-                                <div>Supplier <br> (Đại diện bên bán)</div>
-                            </div>
-                            <div class="grid-item">
-                                <div>Shipper <br> (Nhân viên giao hàng)</div>
-                            </div>
-                            <div class="grid-item">
-                                <div>Buyer <br> (Đại diện bên mua)</div>
-                            </div>
-                        </div>`,
           htmlHeader: /*html*/ `
             <div class="form-transaction__hero">
               <div class="company">
@@ -975,6 +950,28 @@
             '<tr>\n    <td> 89</td>\n    <td></td>\n    <td> Thịt Bò Hàn Quốc</td>\n    <td> 1 kg (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 82,000</td>\n    <td> 82,000 đ</td>\n</tr>\n',
             '<tr>\n    <td> 90</td>\n    <td>12313123</td>\n    <td> Thịt Bò Nhật Bản (82Kg)</td>\n    <td> Buujaa (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
           ],
+          htmlFooter: /*html*/ `
+            <div class="grid-container">
+              <div class="grid-item">
+                <div>
+                  Supplier <br />
+                  (Đại diện bên bán)
+                </div>
+              </div>
+              <div class="grid-item">
+                <div>
+                  Shipper <br />
+                  (Nhân viên giao hàng)
+                </div>
+              </div>
+              <div class="grid-item">
+                <div>
+                  Buyer <br />
+                  (Đại diện bên mua)
+                </div>
+              </div>
+            </div>
+          `,
           wrongQty: 1,
         },
         sheet: 2,
@@ -1109,20 +1106,18 @@
               $(template).attr('order-id', e);
               $(template).attr('order-page', pageNumberPrint);
               $(template).find('.form_head').html(response[e].htmlHeader);
-              $(template).find('.form_footer').html(response[e].htmlBottom);
+              $(template).find('.form_footer').html(response[e].htmlFooter);
               $(template).append(
                 `
-                                <div class="counter-section position-relative mt-auto" data-order-id="` +
-                  e +
-                  `">
-                                    <div class="counter-page">
-                                        <div class="page"></div>
-                                        <div class="total"></div>
-                                    </div>
-                                    <div class="form-copyright" style="text-align: right;padding: 0;margin: 0;">
-                                        <img alt="Oda logo" width="88px" height="56px" src="https://oda-s3-development.s3.ap-southeast-1.amazonaws.com/logo-oda-version-desktop.png" />
-                                    </div>
-                                </div>`
+                <div class="counter-section position-relative mt-auto" data-order-id="${e}">
+                  <div class="counter-page">
+                    <div class="page"></div>
+                    <div class="total"></div>
+                  </div>
+                  <div class="form-copyright" style="text-align: right;padding: 0;margin: 0;">
+                    <img alt="Oda logo" width="88px" height="56px" src="https://oda-s3-development.s3.ap-southeast-1.amazonaws.com/logo-oda-version-desktop.png" />
+                  </div>
+                </div>`
               );
               $('#contentPdf').append(template);
               breakAction = 0;
@@ -1131,7 +1126,7 @@
             // Check Dk show thead //
             conditionHeaderTable(response[e]);
             $('.form_head').last().html(response[e].htmlHeader);
-            $('.form_footer').last().html(response[e].htmlBottom);
+            $('.form_footer').last().html(response[e].htmlFooter);
 
             var heightFooter = $('.form_footer').last().innerHeight();
             let orderProducts = response[e].htmlProducts;
@@ -1185,7 +1180,7 @@
                 $(template).attr('order-id', e);
                 $(template).attr('order-page', pageNumberPrint);
                 $(template).find('.form_head').html(response[e].htmlHeader);
-                $(template).find('.form_footer').html(response[e].htmlBottom);
+                $(template).find('.form_footer').html(response[e].htmlFooter);
                 $(template).append(
                   `
                                     <div class="counter-section position-relative mt-auto" data-order-id="` +
