@@ -28,7 +28,7 @@
       body {
           margin: 0;
           font-family: "Noto Sans", sans-serif;
-          font-size: 12px;
+          font-size: 14px;
           font-weight: 400;
           line-height: 1.5;
           color: #000;
@@ -37,6 +37,12 @@
       }
       #transaction-product {
         border-collapse: collapse;
+      }
+      #transaction-product th,
+      #transaction-product td {
+        padding: 0.3rem;
+        text-align: center;
+        border-color: #000;
       }
       #transaction-product th {
         white-space: nowrap;
@@ -232,24 +238,6 @@
       .form-transaction .form-transaction__date ul li:last-child,
       .form-transaction .form-transaction__head ul li:last-child {
           float: right;
-      }
-      .form-transaction table thead th {
-          background: #eee;
-      }
-      .form-transaction table.table-bordered td {
-          border-color: #000;
-          text-align: center;
-      }
-      .form-transaction table.table-bordered.table-product th,
-      .form-transaction table.table-bordered.table-product td {
-          text-align: center;
-          border-color: #000;
-      }
-      .form-transaction table td,
-      .form-transaction table th {
-          font-size: 12px;
-          line-height: 1.2;
-          padding: 0.3rem;
       }
       .form-transaction
           .form-transaction--bottom
@@ -475,10 +463,8 @@
           transform: translate(-50%, -50%);
           top: 50%;
           font-weight: 500;
-          font-size: 12px;
           background: transparent;
           text-align: center;
-          line-height: 24px;
           color: #000;
       }
       .counter-page div {
@@ -489,8 +475,8 @@
           display: flex;
           flex-flow: row wrap;
           width: 100%;
-          margin-top: 1.5rem;
-          height: 12rem;
+          margin-top: 24px;
+          height: 192px;
       }
       .form_footer .grid-container .grid-item {
           flex-basis: 33.3333%;
@@ -512,7 +498,7 @@
       .form_footer .grid-container .grid-item > div {
           text-align: center;
           font-weight: 600;
-          font-size: 1rem;
+          font-size: 14px;
       }
       .css-2w72wc {
           display: flex;
@@ -568,6 +554,54 @@
           font-size: 1rem;
           text-align: center;
       }
+
+      /* 
+        ######## START Total Order section ########
+      */
+      .total-order-section {
+        margin-top: 16px;
+        display: flex;
+      }
+      .total-order-section .payment-col {
+        min-width: 0;
+        flex: 1 1;
+      }
+      .total-order-section .col-title {
+        font-weight: 600;
+      }
+      .total-order-section .total-col {
+        min-width: 260px;
+        margin-left: 24px;
+      }
+      .total-order-section .info-item {
+        display: flex;
+        margin-top: 8px;;
+      }
+      .total-order-section .info-item-title {
+        min-width: 0;
+      }
+      .total-order-section .info-item-content {
+        min-width: 0;
+        margin-left: 16px;
+      }
+      .total-order-section .price-number {
+
+      }
+      .total-order-section .payment-col .info-item-title {
+        flex: 0 0 220px;
+      }
+      .total-order-section .payment-col .info-item-content {
+
+      }
+      .total-order-section .total-col .info-item-title {
+        flex: 1 1;
+      }
+      .total-order-section .total-col .info-item-content {
+
+      }
+      /* 
+        ######## END Total Order section ########
+      */
 
       @page {
         size: A4;
@@ -951,6 +985,55 @@
             '<tr>\n    <td> 90</td>\n    <td>12313123</td>\n    <td> Thịt Bò Nhật Bản (82Kg)</td>\n    <td> Buujaa (Kg)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n     <td> 20,000</td>\n    <td> 20,000 đ</td>\n</tr>\n',
           ],
           htmlFooter: /*html*/ `
+            <div class="total-order-section">
+              <div class="payment-col">
+                <div class="col-title">Payment instruction (Hướng dẫn thanh toán)</div>
+
+                <div class="info-item">
+                  <div class="info-item-title">
+                    Payment method<br />(Phương thức thanh toán)
+                  </div>
+                  <div class="info-item-content">Credit card</div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-title">
+                    <b>(1)</b> Unpaid amount<br />(Khoản chưa thanh toán)
+                  </div>
+                  <div class="info-item-content price-number">2,452,139 ₫</div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-title">
+                    Total payment = <b>(1) + (2)</b><br />(Tổng thanh toán)
+                  </div>
+                  <div class="info-item-content price-number">4,683,189 ₫</div>
+                </div>
+              </div>
+
+              <div class="total-col">
+                <div class="info-item">
+                  <div class="info-item-title">Sub total<br />(Tạm tính)</div>
+                  <div class="info-item-content price-number">4,683,189 ₫</div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-title">VAT<br />(Thuế)</div>
+                  <div class="info-item-content price-number">4,683,189 ₫</div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-title">Shipping fee<br />(Phí vận chuyển)</div>
+                  <div class="info-item-content price-number">4,683,189 ₫</div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-title"><b>(2)</b> Total<br />(Tổng cộng)</div>
+                  <div class="info-item-content price-number">4,683,189 ₫</div>
+                </div>
+              </div>
+            </div>
+
             <div class="grid-container">
               <div class="grid-item">
                 <div>
