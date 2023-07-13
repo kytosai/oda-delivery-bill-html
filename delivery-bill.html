@@ -741,6 +741,13 @@
 
     $(document).ready(function () {
       const response = {
+        /*
+          Cấu trúc cần backend đổ dữ liệu ở dưới, với 
+            - Key của object là id của đơn hàng, 
+            - `htmlHeader` là header của đơn hàng
+            - `htmlSummary` là phần company info và note
+            - `htmlProducts` là danh sách sản phẩm
+        */
         88395: {
           htmlHeader: /*html*/ `
             <div class="form-transaction__hero">
