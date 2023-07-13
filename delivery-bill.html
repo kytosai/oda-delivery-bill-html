@@ -40,7 +40,7 @@
       }
       #transaction-product th,
       #transaction-product td {
-        padding: 0.3rem;
+        padding: 2px 4px;
         text-align: center;
         border: 1px solid #000;
       }
@@ -49,7 +49,6 @@
         background: #eee;
       }
       #transaction-product td {
-        padding: 4px;
         word-break: break-word;
       }
       #transaction-product th:not(:last-child),
@@ -415,7 +414,7 @@
           flex-direction: column;
           page-break-inside: avoid;
           margin: 0;
-          padding: 2rem 0 0 0;
+          padding: 0 0 0 0;
           background: #ffffff;
       }
 
@@ -761,7 +760,7 @@
 
               <div
                 class="MuiBox-root css-4g0oz5"
-                style="display: flex; margin-top: 1.75rem; align-items: center"
+                style="display: flex; margin-top: 16px; align-items: center"
               >
                 <img
                   style="
@@ -847,7 +846,7 @@
           /*
             Field này chỉ là code test
           */
-          htmlProducts: new Array(30).fill(0).map((item, idx) => {
+          htmlProducts: new Array(40).fill(0).map((item, idx) => {
             const no = idx + 1;
 
             return /*html*/ `
@@ -1115,7 +1114,7 @@
                   .find('.counter-section')
                   .height();
               var heightContent =
-                heightTransactionHead + heightTransactionContent - 130;
+                heightTransactionHead + heightTransactionContent - 140;
 
               if (pageNumberPrint === 1) {
                 heightContent +=
