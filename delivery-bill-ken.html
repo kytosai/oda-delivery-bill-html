@@ -142,6 +142,11 @@
         font-size: 16px;
       }
 
+      #table-infor-order tbody td,
+      #transaction-top tbody td {
+          border: 0 !important;
+      }
+
       .table-nowrap td,
       .table-nowrap th {
           white-space: nowrap;
@@ -556,58 +561,7 @@
           text-align: center;
       }
 
-      /*
-        ######## START Company section ########
-      */
-      .company-section {
-        display: flex;
-        align-items: flex-start;
-        column-gap: 24px;
-        margin-bottom: 16px;
-      }
-      .company-section .supplier-col,
-      .company-section .buyer-col {
-        flex: 1 1;
-        min-width: 0;
-      }
-      .company-section .col-title {
-        background: #eee;
-        padding: 12px 0;
-        text-align: center;
-        font-weight: 700;
-      }
-      .company-section .info-item {
-        margin-top: 8px;
-        display: flex;
-      }
-      .company-section .info-item-title {
-        flex: 0 0 180px;
-        font-weight: 500;
-      }
-      .company-section .info-item-content {
-        text-align: center;
-        flex: 1 1;
-        min-width: 0;
-        font-weight: 600;
-      }
-
-      /*
-        ######## END Company section ########
-      */
-
-      /*
-        ######## START Note section ########
-      */
-      .note-section {
-        margin-bottom: 16px;
-        font-weight: 600;
-      }
-      /*
-        ######## END Note section ########
-      */
-
-
-      /*
+      /* 
         ######## START Total Order section ########
       */
       .total-order-section {
@@ -654,7 +608,7 @@
       .total-order-section .total-col .info-item-content {
 
       }
-      /*
+      /* 
         ######## END Total Order section ########
       */
 
@@ -692,6 +646,7 @@
         >
           <div class="form-transaction transaction-template d-none">
             <div class="form_head form-transaction__head"></div>
+            <div class="form_summary"></div>
             <div class="form_content form-transaction__content">
               <table
                 id="transaction-product"
@@ -787,55 +742,168 @@
                 </li>
               </ul>
             </div>
-        `,
-          htmlSummary: /*html*/ `
-            <div class="company-section">
-              <div class="supplier-col">
-                <div class="col-title">Supplier (Nhà cung cấp)</div>
-
-                <div class="info-item">
-                  <div class="info-item-title">Company name<br />(Tên doanh nghiệp)</div>
-                  <div class="info-item-content">Công ty TNHH MMP 123</div>
-                </div>
-
-                <div class="info-item">
-                  <div class="info-item-title">Address<br />(Địa chỉ)</div>
-                  <div class="info-item-content">
-                    2 nguyễn khắc viện, Quận 7, Thành phố Hồ Chí Minh
-                  </div>
-                </div>
-
-                <div class="info-item">
-                  <div class="info-item-title">Contact number<br />(Số điện thoại)</div>
-                  <div class="info-item-content">0524 7387 8546</div>
-                </div>
-              </div>
-
-              <div class="buyer-col">
-                <div class="col-title">Buyer (Người mua)</div>
-
-                <div class="info-item">
-                  <div class="info-item-title">Company name<br />(Tên doanh nghiệp)</div>
-                  <div class="info-item-content">Công ty TNHH MMP 123</div>
-                </div>
-
-                <div class="info-item">
-                  <div class="info-item-title">Address<br />(Địa chỉ)</div>
-                  <div class="info-item-content">
-                    2 nguyễn khắc viện, Quận 7, Thành phố Hồ Chí Minh
-                  </div>
-                </div>
-
-                <div class="info-item">
-                  <div class="info-item-title">Contact number<br />(Số điện thoại)</div>
-                  <div class="info-item-content">0524 7387 8546</div>
-                </div>
-              </div>
-            </div>
 
             <div class="note-section">
               Note (Ghi chú): Cupidatat nostrud ut pariatur proident labore ad occaecat ut.
             </div>
+        `,
+          htmlSummary: /*html*/ `
+            <div class="MuiBox-root css-2w72wc">
+              <div class="MuiGrid-root css-pzj6pr mb-3">
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiBox-root css-1ofzz31">Supplier (Nhà cung cấp)</div>
+                </div>
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiBox-root css-1ofzz31">Buyer (Người mua)</div>
+                </div>
+              </div>
+              <div class="MuiGrid-root css-pzj6pr" mb-3>
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Company name <br />
+                        (Tên doanh nghiệp)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        Công ty TNHH Vạn Thịnh Phát
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Company name <br />
+                        (Tên doanh nghiệp)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        Masan
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="MuiGrid-root css-pzj6pr mb-3">
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Address <br />
+                        (Địa chỉ)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        123 abc, Huyện Hoằng Hóa, Tỉnh Thanh Hóa 123 abc, Huyện Hoằng Hóa,
+                        Tỉnh Thanh Hóa
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Address <br />
+                        (Địa chỉ)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      ></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="MuiGrid-root css-pzj6pr">
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Contact number <br />
+                        (Số điện thoại)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        98098688687
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Contact number <br />
+                        (Số điện thoại)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      ></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="MuiGrid-root css-pzj6pr">
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Payment method <br />
+                        (Phương thức TT)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        Transfer
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-90mxih"></div>
+              </div>
+              <div class="MuiGrid-root css-pzj6pr">
+                <div class="MuiBox-root css-90mxih">
+                  <div class="MuiGrid-root MuiGrid-container css-1d3bbye">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-1udb513">
+                      <p class="MuiTypography-root MuiTypography-body1 css-48lmmv">
+                        Bank account <br />
+                        (Tài khoản NH)
+                      </p>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8 css-q0y1mx">
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-1vwjgb4 text-center"
+                      >
+                        TPBank - 9089484 - Nguyen Van A
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-90mxih"></div>
+              </div>
+            </div>
+
           `,
           htmlProducts: [
             '<tr>\n    <td> 1</td>\n    <td>111.3</td>\n    <td> san-pham 1</td>\n    <td> (Bao)</td>\n  <td>Specs</td>   <td> 1</td>\n    <td></td>\n   <td> 5%</td>\n       <td> 2,000</td>\n    <td> 2,000 đ</td>\n </tr>\n',
@@ -1036,28 +1104,29 @@
         $('#contentPdf').removeClass('sheet-1');
       }
 
-      $('#contentPdf > div.form-transaction:not(:first)').remove();
-      $('.table-product thead tr').remove();
-      var templateTransaction = $('.transaction-template').clone();
-      $(templateTransaction).removeClass('d-none');
-      $(templateTransaction).removeClass('transaction-template');
-      $(templateTransaction).addClass('form-transaction');
-      $(templateTransaction).attr('order-page', pageNumberPrint);
-      $(templateTransaction).append(
-        `
-                <div class="counter-section position-relative mt-auto" data-order-id="` +
-          lastId +
-          `">
-                    <div class="counter-page">
-                        <div class="page"></div>
-                        <div class="total"></div>
-                    </div>
-                    <div class="form-copyright" style="text-align: right;padding: 0;margin: 0;">
-                        <img alt="Oda logo" width="88px" height="56px" src="https://oda-s3-development.s3.ap-southeast-1.amazonaws.com/logo-oda-version-desktop.png" />
-                    </div>
-                </div>`
-      );
-      $('#contentPdf').append(templateTransaction);
+      // $('#contentPdf > div.form-transaction:not(:first)').remove();
+      // $('.table-product thead tr').remove();
+      // var templateTransaction = $('.transaction-template').clone();
+      // $(templateTransaction).removeClass('d-none');
+      // $(templateTransaction).removeClass('transaction-template');
+      // $(templateTransaction).addClass('form-transaction');
+      // $(templateTransaction).attr('order-page', pageNumberPrint);
+      // console.log('response[1].htmlSummary', response);
+      // $(templateTransaction).append(
+      //   `
+      //           <div class="counter-section position-relative mt-auto" data-order-id="` +
+      //     lastId +
+      //     `">
+      //               <div class="counter-page">
+      //                   <div class="page"></div>
+      //                   <div class="total"></div>
+      //               </div>
+      //               <div class="form-copyright" style="text-align: right;padding: 0;margin: 0;">
+      //                   <img alt="Oda logo" width="88px" height="56px" src="https://oda-s3-development.s3.ap-southeast-1.amazonaws.com/logo-oda-version-desktop.png" />
+      //               </div>
+      //           </div>`
+      // );
+      // $('#contentPdf').append(templateTransaction);
       let headerTable = ``;
       function conditionHeaderTable(response) {
         headerTable = ``;
@@ -1122,13 +1191,12 @@
           }
           currentIndex == i;
           for (let number = 0; number < sheetNumber; number++) {
-            if (number > 0) {
+            if (number >= 0) {
               breakAction = 1;
             }
             if (breakAction == 1) {
               //reset pageNumberPrint when go to next sheet
               pageNumberPrint = 1;
-
               var template = $('.transaction-template').clone();
               $(template).removeClass('d-none');
               $(template).removeClass('transaction-template');
@@ -1136,6 +1204,7 @@
               $(template).attr('order-id', e);
               $(template).attr('order-page', pageNumberPrint);
               $(template).find('.form_head').html(response[e].htmlHeader);
+              $(template).find('.form_summary').html(response[e].htmlSummary);
               $(template).find('.form_footer').html(response[e].htmlFooter);
               $(template).append(
                 `
