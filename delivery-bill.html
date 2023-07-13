@@ -671,10 +671,17 @@
             height: 297mm;
           }
           body {
-              -webkit-print-color-adjust: exact;
+            -webkit-print-color-adjust: exact!important;
           }
           .form-transaction {
               /* height: calc(100vh - 2rem) !important; */
+          }
+          #transaction-product th,
+          #transaction-product td {
+            border: 1px solid #000!important;
+          }
+          #transaction-product th {
+            background: #eee!important;
           }
       }
     </style>
@@ -1118,11 +1125,10 @@
                 .last()
                 .find('.form_content')
                 .height();
-              var heightCounterSection =
-                $('.form-transaction')
-                  .last()
-                  .find('.counter-section')
-                  .height();
+              var heightCounterSection = $('.form-transaction')
+                .last()
+                .find('.counter-section')
+                .height();
               var heightContent =
                 heightTransactionHead + heightTransactionContent - 140;
 
