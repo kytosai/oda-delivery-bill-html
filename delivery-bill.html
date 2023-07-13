@@ -692,6 +692,7 @@
         >
           <div class="form-transaction transaction-template d-none">
             <div class="form_head form-transaction__head"></div>
+            <div class="form_summary"></div>
             <div class="form_content form-transaction__content">
               <table
                 id="transaction-product"
@@ -1036,28 +1037,6 @@
         $('#contentPdf').removeClass('sheet-1');
       }
 
-      $('#contentPdf > div.form-transaction:not(:first)').remove();
-      $('.table-product thead tr').remove();
-      var templateTransaction = $('.transaction-template').clone();
-      $(templateTransaction).removeClass('d-none');
-      $(templateTransaction).removeClass('transaction-template');
-      $(templateTransaction).addClass('form-transaction');
-      $(templateTransaction).attr('order-page', pageNumberPrint);
-      $(templateTransaction).append(
-        `
-                <div class="counter-section position-relative mt-auto" data-order-id="` +
-          lastId +
-          `">
-                    <div class="counter-page">
-                        <div class="page"></div>
-                        <div class="total"></div>
-                    </div>
-                    <div class="form-copyright" style="text-align: right;padding: 0;margin: 0;">
-                        <img alt="Oda logo" width="88px" height="56px" src="https://oda-s3-development.s3.ap-southeast-1.amazonaws.com/logo-oda-version-desktop.png" />
-                    </div>
-                </div>`
-      );
-      $('#contentPdf').append(templateTransaction);
       let headerTable = ``;
       function conditionHeaderTable(response) {
         headerTable = ``;
@@ -1122,7 +1101,7 @@
           }
           currentIndex == i;
           for (let number = 0; number < sheetNumber; number++) {
-            if (number > 0) {
+            if (number >= 0) {
               breakAction = 1;
             }
             if (breakAction == 1) {
@@ -1136,6 +1115,7 @@
               $(template).attr('order-id', e);
               $(template).attr('order-page', pageNumberPrint);
               $(template).find('.form_head').html(response[e].htmlHeader);
+              $(template).find('.form_summary').html(response[e].htmlSummary);
               $(template).find('.form_footer').html(response[e].htmlFooter);
               $(template).append(
                 `
