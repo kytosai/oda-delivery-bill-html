@@ -28,7 +28,7 @@
       body {
           margin: 0;
           font-family: "Noto Sans", sans-serif;
-          font-size: 14px;
+          font-size: 12px;
           font-weight: 400;
           line-height: 1.5;
           color: #000;
@@ -97,7 +97,7 @@
         white-space: nowrap;
       }
       #transaction-product td.quantity-col {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       /* Received quantity column */
@@ -107,7 +107,7 @@
         white-space: nowrap;
       }
       #transaction-product td.received-quantity-col {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       /* Unit price column */
@@ -118,7 +118,7 @@
       }
       #transaction-product td.unit-price-col {
         text-align: right;
-        font-size: 16px;
+        font-size: 14px;
       }
 
       /* VAT column */
@@ -128,7 +128,7 @@
         white-space: nowrap;
       }
       #transaction-product td.vat-col {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       /* Amount column */
@@ -139,7 +139,7 @@
       }
       #transaction-product td.amount-col {
         text-align: right;
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .table-nowrap td,
@@ -404,7 +404,8 @@
       .form-transaction {
           position: relative;
           width: 100%;
-          height: calc(1188px + 8rem);
+          /* 240px là gì ? */
+          height: calc(1188px + 240px);
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
@@ -422,7 +423,7 @@
           min-height: 297mm;
       }
       .form-transaction .form-transaction__date {
-          padding: 1.2rem 0 1rem;
+          padding: 8px 0;
       }
       .form-transaction table td,
       .form-transaction table th,
@@ -499,7 +500,6 @@
       .form_footer .grid-container .grid-item > div {
           text-align: center;
           font-weight: 600;
-          font-size: 14px;
       }
       .css-2w72wc {
           display: flex;
@@ -563,7 +563,7 @@
         display: flex;
         align-items: flex-start;
         column-gap: 24px;
-        margin-bottom: 16px;
+        margin-bottom: 10px;
       }
       .company-section .supplier-col,
       .company-section .buyer-col {
@@ -572,12 +572,12 @@
       }
       .company-section .col-title {
         background: #eee;
-        padding: 12px 0;
+        padding: 10px 0;
         text-align: center;
         font-weight: 700;
       }
       .company-section .info-item {
-        margin-top: 8px;
+        margin-top: 6px;
         display: flex;
       }
       .company-section .info-item-title {
@@ -599,7 +599,7 @@
         ######## START Note section ########
       */
       .note-section {
-        margin-bottom: 16px;
+        margin-bottom: 10px;
         font-weight: 600;
       }
       /*
@@ -637,7 +637,7 @@
         margin-left: 16px;
       }
       .total-order-section .price-number {
-        font-size: 16px;
+        font-size: 14px;
       }
       .total-order-section .payment-col .info-item-title {
         flex: 0 0 220px;
@@ -646,7 +646,7 @@
 
       }
       .total-order-section .total-col {
-        font-size: 16px;
+        font-size: 14px;
       }
       .total-order-section .total-col .info-item-title {
         flex: 1 1;
@@ -854,7 +854,7 @@
               <tr>
                 <td class="no-col">${no}</td>
                 <td class="sku-col">MA00${no}</td>
-                <td class="product-col">Ipsum laboris ullamco officia sunt proident mollit et eiusmod qui deserunt</td>
+                <td class="product-col">Ipsum laboris ullamco</td>
                 <td class="uom-col">cái</td>
                 <td class="spec-uom-col">Eiusmod consectetur</td>
                 <td class="quantity-col">2</td>
@@ -1113,9 +1113,9 @@
                 $('.form-transaction')
                   .last()
                   .find('.counter-section')
-                  .height() + 40;
+                  .height();
               var heightContent =
-                heightTransactionHead + heightTransactionContent;
+                heightTransactionHead + heightTransactionContent - 130;
 
               if (pageNumberPrint === 1) {
                 heightContent +=
