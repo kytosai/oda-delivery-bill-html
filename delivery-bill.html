@@ -142,11 +142,6 @@
         font-size: 16px;
       }
 
-      #table-infor-order tbody td,
-      #transaction-top tbody td {
-          border: 0 !important;
-      }
-
       .table-nowrap td,
       .table-nowrap th {
           white-space: nowrap;
@@ -561,7 +556,58 @@
           text-align: center;
       }
 
-      /* 
+      /*
+        ######## START Company section ########
+      */
+      .company-section {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 24px;
+        margin-bottom: 16px;
+      }
+      .company-section .supplier-col,
+      .company-section .buyer-col {
+        flex: 1 1;
+        min-width: 0;
+      }
+      .company-section .col-title {
+        background: #eee;
+        padding: 12px 0;
+        text-align: center;
+        font-weight: 700;
+      }
+      .company-section .info-item {
+        margin-top: 8px;
+        display: flex;
+      }
+      .company-section .info-item-title {
+        flex: 0 0 180px;
+        font-weight: 500;
+      }
+      .company-section .info-item-content {
+        text-align: center;
+        flex: 1 1;
+        min-width: 0;
+        font-weight: 600;
+      }
+
+      /*
+        ######## END Company section ########
+      */
+
+      /*
+        ######## START Note section ########
+      */
+      .note-section {
+        margin-bottom: 16px;
+        font-weight: 600;
+      }
+      /*
+        ######## END Note section ########
+      */
+
+
+      /*
         ######## START Total Order section ########
       */
       .total-order-section {
@@ -608,7 +654,7 @@
       .total-order-section .total-col .info-item-content {
 
       }
-      /* 
+      /*
         ######## END Total Order section ########
       */
 
@@ -740,6 +786,50 @@
                   <span> 2023-04-06</span>
                 </li>
               </ul>
+            </div>
+
+            <div class="company-section">
+              <div class="supplier-col">
+                <div class="col-title">Supplier (Nhà cung cấp)</div>
+
+                <div class="info-item">
+                  <div class="info-item-title">Company name<br />(Tên doanh nghiệp)</div>
+                  <div class="info-item-content">Công ty TNHH MMP 123</div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-title">Address<br />(Địa chỉ)</div>
+                  <div class="info-item-content">
+                    2 nguyễn khắc viện, Quận 7, Thành phố Hồ Chí Minh
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-title">Contact number<br />(Số điện thoại)</div>
+                  <div class="info-item-content">0524 7387 8546</div>
+                </div>
+              </div>
+
+              <div class="buyer-col">
+                <div class="col-title">Buyer (Người mua)</div>
+
+                <div class="info-item">
+                  <div class="info-item-title">Company name<br />(Tên doanh nghiệp)</div>
+                  <div class="info-item-content">Công ty TNHH MMP 123</div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-title">Address<br />(Địa chỉ)</div>
+                  <div class="info-item-content">
+                    2 nguyễn khắc viện, Quận 7, Thành phố Hồ Chí Minh
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-title">Contact number<br />(Số điện thoại)</div>
+                  <div class="info-item-content">0524 7387 8546</div>
+                </div>
+              </div>
             </div>
 
             <div class="note-section">
