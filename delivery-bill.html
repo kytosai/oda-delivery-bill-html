@@ -1169,6 +1169,11 @@
                   .height() + 40;
               var heightContent =
                 heightTransactionHead + heightTransactionContent;
+
+              if(pageNumberPrint === 1) {
+                heightContent += $('.company-section').height() + $('.note-section').height(); 
+              }
+
               if (
                 heightContent + heightCounterSection > a4Height ||
                 (index == orderProducts.length - 1 &&
