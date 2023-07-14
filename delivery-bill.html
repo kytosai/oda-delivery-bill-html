@@ -984,6 +984,7 @@
           .find('.counter-page .page')
           .text(`Page ` + page);
       });
+
       orderIds.map((order) => {
         const container = document.querySelector('#contentPdf');
         const matches = container.querySelectorAll(
@@ -995,7 +996,16 @@
             .append(`/ ` + matches.length / response.sheet);
         }
       });
+
+      // Remove table head in last page if empty product list
+      const $tableProductLast = $('.form_content')
+        .last()
+        .find('.table-product');
+      if ($tableProductLast.find('tbody').html().trim() === '') {
+        $tableProductLast.remove();
+      }
     });
+
     function renderTransaction(response) {
       let sheetNumber = response.sheet;
       let lastId = orderIds[orderIds.length - 1];
@@ -1178,14 +1188,6 @@
                 conditionHeaderTable(response[e]);
               }
             });
-          }
-
-          // Remove table head in last page if empty product list
-          const $tableProductLast = $('.form_content')
-            .last()
-            .find('.table-product');
-          if (!$tableProductLast.find('tr').length) {
-            $tableProductLast.remove();
           }
         }
       });
