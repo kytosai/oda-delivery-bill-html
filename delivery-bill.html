@@ -856,7 +856,7 @@
           /*
             Field này chỉ là code test
           */
-          htmlProducts: new Array(40).fill(0).map((item, idx) => {
+          htmlProducts: new Array(34).fill(0).map((item, idx) => {
             const no = idx + 1;
 
             return /*html*/ `
@@ -1048,7 +1048,12 @@
         headerTable += `</tr>`;
 
         // Append thead
-        $('.form_content .table-product thead').last().append(headerTable);
+        const $tableProductLast = $('.form_content')
+          .last()
+          .find('.table-product');
+        if ($tableProductLast.length) {
+          $tableProductLast.prepend(headerTable);
+        }
       }
 
       // let a4Height = 1188; // 210mm - 297mm - 150PPI (1754)
@@ -1137,6 +1142,11 @@
                   $('.company-section').height() + $('.note-section').height();
               }
 
+              $('.form_content')
+                .last()
+                .find('.table-product tbody')
+                .append(product);
+
               if (
                 heightContent + heightCounterSection > a4Height ||
                 (index == orderProducts.length - 1 &&
@@ -1172,12 +1182,15 @@
                 // Check Dk show thead //
                 conditionHeaderTable(response[e]);
               }
-
-              $('.form_content')
-                .last()
-                .find('.table-product tbody')
-                .append(product);
             });
+          } // end for
+
+          // Remove table head in last page if empty product list
+          const $tableProductLast = $('.form_content')
+            .last()
+            .find('.table-product');
+          if (!$tableProductLast.find('tr').length) {
+            $tableProductLast.remove();
           }
         }
       });
