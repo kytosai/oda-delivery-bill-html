@@ -856,7 +856,7 @@
           /*
             Field này chỉ là code test
           */
-          htmlProducts: new Array(34).fill(0).map((item, idx) => {
+          htmlProducts: new Array(33).fill(0).map((item, idx) => {
             const no = idx + 1;
 
             return /*html*/ `
@@ -1048,12 +1048,7 @@
         headerTable += `</tr>`;
 
         // Append thead
-        const $tableProductLast = $('.form_content')
-          .last()
-          .find('.table-product');
-        if ($tableProductLast.length) {
-          $tableProductLast.prepend(headerTable);
-        }
+        $('.form_content .table-product thead').last().append(headerTable);
       }
 
       // let a4Height = 1188; // 210mm - 297mm - 150PPI (1754)
@@ -1183,7 +1178,7 @@
                 conditionHeaderTable(response[e]);
               }
             });
-          } // end for
+          }
 
           // Remove table head in last page if empty product list
           const $tableProductLast = $('.form_content')
