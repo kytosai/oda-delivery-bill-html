@@ -1130,7 +1130,7 @@
                 .find('.counter-section')
                 .height();
               var heightContent =
-                heightTransactionHead + heightTransactionContent - 140;
+                heightTransactionHead + heightTransactionContent - 110;
 
               if (pageNumberPrint === 1) {
                 heightContent +=
@@ -1143,12 +1143,6 @@
                   heightContent + heightFooter + heightCounterSection >
                     a4Height)
               ) {
-                // Add Shipping fee column
-                const firstProductDOM = new DOMParser().parseFromString(
-                  orderProducts[0],
-                  'text/xml'
-                );
-
                 pageNumberPrint += 1;
                 $('.form_footer').last().remove();
                 var template = $('.transaction-template').clone();
@@ -1177,10 +1171,6 @@
 
                 // Check Dk show thead //
                 conditionHeaderTable(response[e]);
-              }
-
-              if (index === orderProducts.length - 1 - amountTotalRow) {
-                const lastPage = $('.form_content').last();
               }
 
               $('.form_content')
