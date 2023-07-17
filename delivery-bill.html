@@ -856,14 +856,14 @@
           /*
             Field này chỉ là code test
           */
-          htmlProducts: new Array(33).fill(0).map((item, idx) => {
+          htmlProducts: new Array(29).fill(0).map((item, idx) => {
             const no = idx + 1;
 
             return /*html*/ `
               <tr>
                 <td class="no-col">${no}</td>
                 <td class="sku-col">MA00${no}</td>
-                <td class="product-col">Ipsum laboris ullamco</td>
+                <td class="product-col">Ipsum laboris ullamco Consectetur irure fugiat ipsum est.Do eiusmod non est incididunt duis.</td>
                 <td class="uom-col">cái</td>
                 <td class="spec-uom-col">Eiusmod consectetur</td>
                 <td class="quantity-col">2</td>
@@ -1147,11 +1147,6 @@
                   $('.company-section').height() + $('.note-section').height();
               }
 
-              $('.form_content')
-                .last()
-                .find('.table-product tbody')
-                .append(product);
-
               if (
                 heightContent + heightCounterSection > a4Height ||
                 (index == orderProducts.length - 1 &&
@@ -1187,6 +1182,11 @@
                 // Check Dk show thead //
                 conditionHeaderTable(response[e]);
               }
+
+              $('.form_content')
+                .last()
+                .find('.table-product tbody')
+                .append(product);
             });
           }
         }
