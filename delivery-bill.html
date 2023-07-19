@@ -27,7 +27,7 @@
       }
       body {
         margin: 0;
-        font-family: "Noto Sans", sans-serif;
+        font-family: 'Noto Sans', sans-serif;
         font-size: 14px;
         font-weight: 400;
         line-height: 1.5;
@@ -49,7 +49,7 @@
         background: #eee;
       }
       #transaction-product td {
-        word-break: break-word;
+        word-break: break-all;
       }
       #transaction-product th:not(:last-child),
       #transaction-product td:not(:last-child) {
@@ -75,6 +75,7 @@
       }
       #transaction-product td.product-col {
         text-align: left;
+        word-break: break-word;
       }
 
       /* UoM column */
@@ -194,7 +195,11 @@
       .form-transaction .form-transaction__hero .company .company-logo img {
         max-width: 80px;
       }
-      .form-transaction .form-transaction__hero .company .company-content .title {
+      .form-transaction
+        .form-transaction__hero
+        .company
+        .company-content
+        .title {
         font-weight: 600;
         font-size: 1.5rem;
       }
@@ -274,7 +279,7 @@
         width: 18%;
         font-weight: 500;
       }
-      
+
       #transaction-product thead th {
         padding-top: 4px;
         padding-bottom: 4px;
@@ -351,7 +356,7 @@
         position: relative;
       }
       .form_footer .grid-container .grid-item:after {
-        content: "";
+        content: '';
         position: absolute;
         border-bottom: 1px dashed #000;
         width: 76%;
